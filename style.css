@@ -1,12 +1,21 @@
-body{
+body {
     margin: 0;
     padding: 0;
-    background-image:url(img/beuty.jpg);
+    background-image: url(img/beuty.jpg);
     -webkit-background-size: cover;
     background-size: cover;
-    font-family: Tahoma , sans-serif;
+    font-family: Tahoma, sans-serif;
 }
 
+:root {
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+}
+
+.form-field small {
+    color: var(--error-color);
+}
 
 .header {
     padding: 0px;
@@ -14,37 +23,52 @@ body{
     background: transparent;
     color: black;
     font-size: 15px;
-  }
+}
 
-.form-area{
+.form-area {
     position: absolute;
     top: 50%;
-    left:50%;
-    transform:  translate(-50%, -50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 400px;
     height: 500px;
     box-sizing: border-box;
     background: rgba(0, 0, 0, 0.5);
     padding: 40px;
 }
-h3{
+
+h3 {
     margin: 0;
     padding: 0 0 20px;
     font-weight: bold;
     color: #ffffff
 }
-.form-area p{
+
+p {
+    margin: 0;
+    padding: 0 0 20px;
+    color: #ffffff
+}
+
+.form-field label {
+    display: block;
     margin: 0;
     padding: 0;
     font-weight: bold;
     color: #ffffff
 }
-.form-area input,select{
-    margin-bottom: 20px;
+
+.form-area input,
+select {
+    margin-bottom: 4px;
     width: 100%;
 }
-.form-area input[type=text]
-{
+
+.form-field {
+    padding: 15px;
+}
+
+.form-area input[type=text] {
     border: none;
     border-bottom: 1px solid #ffffff;
     background-color: transparent;
@@ -53,16 +77,19 @@ h3{
     color: #ffffff;
     display: 16px;
 }
-::placeholder{
+
+::placeholder {
     color: #ffffff;
 }
-.form-area select{
+
+.form-area select {
     margin-top: 20px;
-    padding:10px 0;
+    padding: 10px 0;
 }
-.form-area input[type=submit]
-{
-    border:none;
+
+.form-area input[type=submit] {
+    margin-top: 20px;
+    border: none;
     height: 40px;
     outline: none;
     color: #ffffff;
@@ -71,10 +98,53 @@ h3{
     cursor: pointer;
     border-radius: 20px;
 }
-.form-area input[type=submit] :hover{
+
+.form-area input[type=submit] :hover {
     background-color: cyan;
     color: #ffffff;
 }
 
+.form-field input:focus {
+    outline: none;
+}
 
+.form-field.error input {
+    border-color: var(--error-color);
+}
 
+.form-field.success input {
+    border-color: var(--success-color);
+}
+
+.phone {
+    display: inline-block;
+    width: 100%;
+}
+
+.phone input,
+small {
+    float: left;
+    width: 75%;
+}
+
+.phoneImg {
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: 40px;
+    float: right;
+}
+
+.phoneState {
+    float: right;
+    color: white;
+    font-size: 16px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
