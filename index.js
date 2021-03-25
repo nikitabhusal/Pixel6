@@ -1,3 +1,4 @@
+//constants 
 const usernameEl = document.querySelector('#name');
 const emailEl = document.querySelector('#email');
 const phoneEl = document.querySelector('#phone');
@@ -19,6 +20,7 @@ const otpSuccessForm = document.querySelector('#otpSuccess');
 
 let otpAttemps = 0;
 
+//validation function for name
 const checkName = () => {
     let valid = false;
     const min = 4, minWords = 2;
@@ -43,7 +45,7 @@ const checkName = () => {
     return valid;
 };
 
-
+//validation function for mail
 const checkEmail = () => {
     let valid = false;
     const email = emailEl.value.trim();
@@ -59,6 +61,8 @@ const checkEmail = () => {
     return valid;
 };
 
+
+//validation function phone
 const checkPhone = () => {
     let valid = false;
 
@@ -76,6 +80,7 @@ const checkPhone = () => {
     userDetails.phone = phoneEl.value;
     return valid;
 };
+//validation for otp
 
 const checkOTP = () => {
     let valid = false;
@@ -93,12 +98,14 @@ const checkOTP = () => {
     return valid;
 };
 
-
+//function for checking email format
 const isEmailValid = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
 };
 
+
+//function for checking phone format conditions
 const formatPhoneNumber = (phoneNumberString) => {
     const input = phoneNumberString.replace(/\D/g, '').substring(0, 10); // First ten digits of input only
     let valid = true;
