@@ -64,7 +64,7 @@ const checkEmail = () => {
 
 //validation function phone
 const checkPhone = () => {
-    let valid = false;
+    let validInput = false;
 
     const phone = phoneEl.value.trim();
 
@@ -74,11 +74,12 @@ const checkPhone = () => {
         showError(phoneEl, 'Phone must be 10 digit no');
     } else {
         showSuccess(phoneEl);
-        valid = true;
+        validInput = true;
     }
-    phoneEl.value = formatPhoneNumber(phone) || phone;
+    let { phoneNumberString, valid } = formatPhoneNumber(phone);
+    phoneEl.value = phoneNumberString || phone;
     userDetails.phone = phoneEl.value;
-    return valid;
+    return validInput && valid;
 };
 //validation for otp
 
@@ -131,7 +132,7 @@ const formatPhoneNumber = (phoneNumberString) => {
     if (input.length > 6) { phoneNumberString = `(${areaCode})-${middle}-${last}`; }
     else if (input.length > 3) { phoneNumberString = `(${areaCode})-${middle}`; }
     else if (input.length > 0) { phoneNumberString = `(${areaCode}`; }
-    return phoneNumberString;
+    return { phoneNumberString, valid };
 };
 
 const isRequired = value => value === '' ? false : true;
