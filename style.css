@@ -122,7 +122,7 @@ select {
 }
 
 .phone input,
-small {
+.phone small {
     float: left;
     width: 75%;
 }
